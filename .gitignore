@@ -8,3 +8,5 @@ figure/
 doc/
 model/
 search.py
+*.pkl
+.vscode/
