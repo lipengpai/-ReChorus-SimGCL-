@@ -1,0 +1,53 @@
+INFO:root:Namespace(model_name='SimGCL', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2026-10-03 15:18:53 ---------------------------------------------
+INFO:root:
+==================================
+ Arguments          | Values      
+==================================
+ batch_size         | 1024       
+ cl_rate            | 0.05       
+ data_appendix      |            
+ dataset            | ML_1M_Pilot
+ dropout            | 0          
+ early_stop         | 3          
+ emb_size           | 32         
+ epoch              | 10         
+ eps                | 0.1        
+ eval_batch_size    | 1024       
+ gpu                | 0          
+ include_ego        | 0          
+ l2                 | 0.0001     
+ lr                 | 0.001      
+ main_metric        | NDCG@20    
+ n_layers           | 2          
+ num_neg            | 1          
+ num_workers        | 0          
+ optimizer          | Adam       
+ random_seed        | 2026       
+ save_final_results | 0          
+ temperature        | 0.2        
+ test_all           | 0          
+ topk               | 10,20      
+==================================
+INFO:root:Device: cpu
+INFO:root:Load corpus from ../data\ML_1M_Pilot\BaseReader.pkl
+INFO:root:#params: 87904
+INFO:root:SimGCL(
+  (encoder): SimGCLEncoder()
+)
+INFO:root:Test Before Training: (HR@10:0.2021,NDCG@10:0.0990,HR@20:0.3407,NDCG@20:0.1338)
+INFO:root:Optimizer: Adam
+INFO:root:Epoch 1     loss=0.9160 [7.0 s]	dev=(HR@20:0.2757,NDCG@20:0.0987) [0.0 s] *
+INFO:root:Epoch 2     loss=0.8846 [1.8 s]	dev=(HR@20:0.2577,NDCG@20:0.0938) [0.0 s]
+INFO:root:Epoch 3     loss=0.8733 [1.9 s]	dev=(HR@20:0.2602,NDCG@20:0.0945) [0.0 s]
+INFO:root:Epoch 4     loss=0.8676 [1.8 s]	dev=(HR@20:0.2610,NDCG@20:0.0939) [0.0 s]
+INFO:root:Early stop at 4 based on dev result.
+INFO:root:
+Best Iter(dev)=    1	 dev=(HR@20:0.2757,NDCG@20:0.0987) [12.5 s] 
+INFO:root:Load model from D:\大三上\ML实验\理论课大作业\ReChorus\experiments\results\tuning_models\ML_1M_Pilot\cl0.05_ego0.pt
+INFO:root:
+Dev  After Training: (HR@10:0.1436,NDCG@10:0.0658,HR@20:0.2757,NDCG@20:0.0987)
+INFO:root:
+Test After Training: (HR@10:0.1256,NDCG@10:0.0539,HR@20:0.2306,NDCG@20:0.0802)
+INFO:root:
+--------------------------------------------- END: 2026-10-03 15:19:06 ---------------------------------------------

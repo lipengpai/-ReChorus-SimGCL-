@@ -40,7 +40,7 @@ def parse_global_args(parser):
 
 def main():
 	logging.info('-' * 45 + ' BEGIN: ' + utils.get_time() + ' ' + '-' * 45)
-	exclude = ['check_epoch', 'log_file', 'model_path', 'path', 'pin_memory', 'load',
+	exclude = ['check_epoch', 'log_file', 'model_path', 'resume_state', 'path', 'pin_memory', 'load',
 			   'regenerate', 'sep', 'train', 'verbose', 'metric', 'test_epoch', 'buffer']
 	logging.info(utils.format_arg_str(args, exclude_lst=exclude))
 

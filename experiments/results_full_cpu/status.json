@@ -1,0 +1,13 @@
+{
+  "status": "completed",
+  "completed_runs": 6,
+  "planned_runs": 6,
+  "elapsed_seconds": 10160.5,
+  "historical_training_seconds": 10160.5,
+  "budget_hours": 10.0,
+  "patience": 5,
+  "runs_per_invocation": 1,
+  "audited": true,
+  "retry_reason": "The interrupted MovieLens SimGCL run reset Adam state; its authoritative result was replaced by an uninterrupted retry.",
+  "authoritative_retry": "retry/logs/ML_1MTOPK/SimGCL_seed2026.txt"
+}

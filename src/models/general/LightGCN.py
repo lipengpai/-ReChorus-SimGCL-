@@ -117,7 +117,10 @@ class LGCNEncoder(nn.Module):
 		self.norm_adj = norm_adj
 
 		self.embedding_dict = self._init_model()
-		self.sparse_norm_adj = self._convert_sp_mat_to_sp_tensor(self.norm_adj).cuda()
+		# Keep the normalized graph with the module so ``model.to(device)`` moves it
+		# together with the embeddings.  The upstream implementation called
+		# ``.cuda()`` unconditionally, which prevented CPU-only experiments.
+		self.register_buffer('sparse_norm_adj', self._convert_sp_mat_to_sp_tensor(self.norm_adj))
 
 	def _init_model(self):
 		initializer = nn.init.xavier_uniform_
@@ -130,9 +133,9 @@ class LGCNEncoder(nn.Module):
 	@staticmethod
 	def _convert_sp_mat_to_sp_tensor(X):
 		coo = X.tocoo()
-		i = torch.LongTensor([coo.row, coo.col])
+		i = torch.from_numpy(np.vstack((coo.row, coo.col))).long()
 		v = torch.from_numpy(coo.data).float()
-		return torch.sparse.FloatTensor(i, v, coo.shape)
+		return torch.sparse_coo_tensor(i, v, coo.shape).coalesce()
 
 	def forward(self, users, items):
 		ego_embeddings = torch.cat([self.embedding_dict['user_emb'], self.embedding_dict['item_emb']], 0)

@@ -1,0 +1,163 @@
+INFO:root:Namespace(model_name='SimGCL', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2026-10-04 16:21:07 ---------------------------------------------
+INFO:root:
+===========================================
+ Arguments          | Values               
+===========================================
+ batch_size         | 2048                
+ cl_rate            | 0.2                 
+ data_appendix      |                     
+ dataset            | Grocery_and_Gourm...
+ dropout            | 0                   
+ early_stop         | 10                  
+ emb_size           | 64                  
+ epoch              | 200                 
+ eps                | 0.1                 
+ eval_batch_size    | 512                 
+ gpu                |                     
+ include_ego        | 0                   
+ l2                 | 0.0001              
+ lr                 | 0.001               
+ main_metric        | NDCG@20             
+ n_layers           | 3                   
+ num_neg            | 1                   
+ num_workers        | 0                   
+ optimizer          | Adam                
+ random_seed        | 2026                
+ save_final_results | 0                   
+ temperature        | 0.2                 
+ test_all           | 0                   
+ topk               | 10,20               
+===========================================
+INFO:root:Device: cpu
+INFO:root:Load corpus from ../data\Grocery_and_Gourmet_Food\BaseReader.pkl
+INFO:root:#params: 1497344
+INFO:root:SimGCL(
+  (encoder): SimGCLEncoder()
+)
+INFO:root:Test Before Training: (HR@10:0.1071,NDCG@10:0.0499,HR@20:0.2140,NDCG@20:0.0766)
+INFO:root:Optimizer: Adam
+INFO:root:Epoch 1     loss=1.9645 [37.8 s]	dev=(HR@20:0.3906,NDCG@20:0.2038) [2.3 s] *
+INFO:root:Epoch 2     loss=1.8631 [35.7 s]	dev=(HR@20:0.4054,NDCG@20:0.2170) [2.3 s] *
+INFO:root:Epoch 3     loss=1.8464 [34.9 s]	dev=(HR@20:0.4185,NDCG@20:0.2273) [2.6 s] *
+INFO:root:Epoch 4     loss=1.8397 [34.1 s]	dev=(HR@20:0.4263,NDCG@20:0.2331) [2.3 s] *
+INFO:root:Epoch 5     loss=1.8364 [33.9 s]	dev=(HR@20:0.4336,NDCG@20:0.2374) [2.2 s] *
+INFO:root:Epoch 6     loss=1.8337 [33.1 s]	dev=(HR@20:0.4345,NDCG@20:0.2403) [2.3 s] *
+INFO:root:Epoch 7     loss=1.8324 [34.8 s]	dev=(HR@20:0.4390,NDCG@20:0.2434) [2.4 s] *
+INFO:root:Epoch 8     loss=1.8312 [35.8 s]	dev=(HR@20:0.4432,NDCG@20:0.2450) [2.3 s] *
+INFO:root:Epoch 9     loss=1.8306 [34.3 s]	dev=(HR@20:0.4439,NDCG@20:0.2466) [2.3 s] *
+INFO:root:Epoch 10    loss=1.8299 [34.1 s]	dev=(HR@20:0.4470,NDCG@20:0.2476) [2.3 s] *
+INFO:root:Epoch 11    loss=1.8290 [34.4 s]	dev=(HR@20:0.4456,NDCG@20:0.2476) [2.5 s]
+INFO:root:Epoch 12    loss=1.8290 [33.8 s]	dev=(HR@20:0.4480,NDCG@20:0.2498) [2.2 s] *
+INFO:root:Epoch 13    loss=1.8285 [34.1 s]	dev=(HR@20:0.4481,NDCG@20:0.2498) [2.3 s]
+INFO:root:Epoch 14    loss=1.8280 [34.0 s]	dev=(HR@20:0.4504,NDCG@20:0.2520) [2.2 s] *
+INFO:root:Epoch 15    loss=1.8278 [33.9 s]	dev=(HR@20:0.4486,NDCG@20:0.2505) [2.3 s]
+INFO:root:Epoch 16    loss=1.8271 [34.1 s]	dev=(HR@20:0.4498,NDCG@20:0.2527) [2.5 s] *
+INFO:root:Epoch 17    loss=1.8276 [38.2 s]	dev=(HR@20:0.4522,NDCG@20:0.2524) [2.4 s]
+INFO:root:Epoch 18    loss=1.8276 [34.5 s]	dev=(HR@20:0.4529,NDCG@20:0.2525) [2.3 s]
+INFO:root:Epoch 19    loss=1.8272 [34.0 s]	dev=(HR@20:0.4503,NDCG@20:0.2524) [2.3 s]
+INFO:root:Epoch 20    loss=1.8268 [33.9 s]	dev=(HR@20:0.4510,NDCG@20:0.2532) [2.3 s] *
+INFO:root:Epoch 21    loss=1.8264 [34.3 s]	dev=(HR@20:0.4519,NDCG@20:0.2528) [2.4 s]
+INFO:root:Epoch 22    loss=1.8268 [34.1 s]	dev=(HR@20:0.4511,NDCG@20:0.2528) [2.3 s]
+INFO:root:Epoch 23    loss=1.8267 [34.0 s]	dev=(HR@20:0.4513,NDCG@20:0.2536) [2.3 s] *
+INFO:root:Epoch 24    loss=1.8268 [34.9 s]	dev=(HR@20:0.4512,NDCG@20:0.2532) [2.5 s]
+INFO:root:Epoch 25    loss=1.8266 [36.6 s]	dev=(HR@20:0.4502,NDCG@20:0.2536) [2.5 s] *
+INFO:root:Epoch 26    loss=1.8265 [37.7 s]	dev=(HR@20:0.4500,NDCG@20:0.2531) [2.6 s]
+INFO:root:Epoch 27    loss=1.8265 [41.5 s]	dev=(HR@20:0.4516,NDCG@20:0.2532) [2.4 s]
+INFO:root:Epoch 28    loss=1.8263 [34.7 s]	dev=(HR@20:0.4549,NDCG@20:0.2551) [2.3 s] *
+INFO:root:Epoch 29    loss=1.8263 [34.9 s]	dev=(HR@20:0.4524,NDCG@20:0.2543) [2.5 s]
+INFO:root:Epoch 30    loss=1.8263 [35.6 s]	dev=(HR@20:0.4523,NDCG@20:0.2554) [2.5 s] *
+INFO:root:Epoch 31    loss=1.8262 [35.8 s]	dev=(HR@20:0.4508,NDCG@20:0.2545) [2.4 s]
+INFO:root:Epoch 32    loss=1.8261 [35.1 s]	dev=(HR@20:0.4536,NDCG@20:0.2553) [2.4 s]
+INFO:root:Epoch 33    loss=1.8264 [34.7 s]	dev=(HR@20:0.4534,NDCG@20:0.2551) [2.3 s]
+INFO:root:Epoch 34    loss=1.8258 [34.3 s]	dev=(HR@20:0.4523,NDCG@20:0.2545) [2.3 s]
+INFO:root:Epoch 35    loss=1.8262 [34.3 s]	dev=(HR@20:0.4528,NDCG@20:0.2542) [2.4 s]
+INFO:root:Epoch 36    loss=1.8257 [33.8 s]	dev=(HR@20:0.4552,NDCG@20:0.2558) [2.2 s] *
+INFO:root:Epoch 37    loss=1.8258 [34.9 s]	dev=(HR@20:0.4530,NDCG@20:0.2554) [2.4 s]
+INFO:root:Epoch 38    loss=1.8259 [34.1 s]	dev=(HR@20:0.4539,NDCG@20:0.2557) [2.6 s]
+INFO:root:Epoch 39    loss=1.8262 [36.6 s]	dev=(HR@20:0.4532,NDCG@20:0.2559) [2.5 s] *
+INFO:root:Epoch 40    loss=1.8261 [35.8 s]	dev=(HR@20:0.4508,NDCG@20:0.2546) [2.5 s]
+INFO:root:Epoch 41    loss=1.8255 [35.7 s]	dev=(HR@20:0.4498,NDCG@20:0.2545) [2.4 s]
+INFO:root:Namespace(model_name='SimGCL', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2026-10-04 16:50:04 ---------------------------------------------
+INFO:root:
+===========================================
+ Arguments          | Values               
+===========================================
+ batch_size         | 2048                
+ cl_rate            | 0.2                 
+ data_appendix      |                     
+ dataset            | Grocery_and_Gourm...
+ dropout            | 0                   
+ early_stop         | 5                   
+ emb_size           | 64                  
+ epoch              | 200                 
+ eps                | 0.1                 
+ eval_batch_size    | 512                 
+ gpu                |                     
+ include_ego        | 0                   
+ l2                 | 0.0001              
+ lr                 | 0.001               
+ main_metric        | NDCG@20             
+ n_layers           | 3                   
+ num_neg            | 1                   
+ num_workers        | 0                   
+ optimizer          | Adam                
+ random_seed        | 2026                
+ save_final_results | 0                   
+ temperature        | 0.2                 
+ test_all           | 0                   
+ topk               | 10,20               
+===========================================
+INFO:root:Device: cpu
+INFO:root:Load corpus from ../data\Grocery_and_Gourmet_Food\BaseReader.pkl
+INFO:root:#params: 1497344
+INFO:root:SimGCL(
+  (encoder): SimGCLEncoder()
+)
+INFO:root:Test Before Training: (HR@10:0.1071,NDCG@10:0.0499,HR@20:0.2140,NDCG@20:0.0766)
+INFO:root:Optimizer: Adam
+INFO:root:Epoch 1     loss=1.9645 [55.9 s]	dev=(HR@20:0.3906,NDCG@20:0.2038) [3.7 s] *
+INFO:root:Epoch 2     loss=1.8631 [38.5 s]	dev=(HR@20:0.4056,NDCG@20:0.2170) [2.3 s] *
+INFO:root:Epoch 3     loss=1.8464 [33.7 s]	dev=(HR@20:0.4181,NDCG@20:0.2273) [2.2 s] *
+INFO:root:Epoch 4     loss=1.8397 [32.8 s]	dev=(HR@20:0.4263,NDCG@20:0.2332) [2.2 s] *
+INFO:root:Epoch 5     loss=1.8364 [33.3 s]	dev=(HR@20:0.4332,NDCG@20:0.2375) [2.3 s] *
+INFO:root:Epoch 6     loss=1.8337 [34.0 s]	dev=(HR@20:0.4340,NDCG@20:0.2401) [2.4 s] *
+INFO:root:Epoch 7     loss=1.8324 [34.2 s]	dev=(HR@20:0.4394,NDCG@20:0.2436) [2.3 s] *
+INFO:root:Epoch 8     loss=1.8312 [33.7 s]	dev=(HR@20:0.4431,NDCG@20:0.2453) [2.3 s] *
+INFO:root:Epoch 9     loss=1.8306 [52.5 s]	dev=(HR@20:0.4440,NDCG@20:0.2466) [4.8 s] *
+INFO:root:Epoch 10    loss=1.8299 [77.4 s]	dev=(HR@20:0.4467,NDCG@20:0.2472) [2.2 s] *
+INFO:root:Epoch 11    loss=1.8291 [39.8 s]	dev=(HR@20:0.4460,NDCG@20:0.2477) [2.7 s] *
+INFO:root:Epoch 12    loss=1.8290 [33.3 s]	dev=(HR@20:0.4479,NDCG@20:0.2502) [2.1 s] *
+INFO:root:Epoch 13    loss=1.8285 [30.5 s]	dev=(HR@20:0.4487,NDCG@20:0.2497) [2.1 s]
+INFO:root:Epoch 14    loss=1.8280 [39.5 s]	dev=(HR@20:0.4516,NDCG@20:0.2521) [4.9 s] *
+INFO:root:Epoch 15    loss=1.8278 [63.3 s]	dev=(HR@20:0.4485,NDCG@20:0.2506) [5.6 s]
+INFO:root:Epoch 16    loss=1.8271 [74.5 s]	dev=(HR@20:0.4513,NDCG@20:0.2527) [2.9 s] *
+INFO:root:Epoch 17    loss=1.8276 [42.0 s]	dev=(HR@20:0.4517,NDCG@20:0.2524) [2.9 s]
+INFO:root:Epoch 18    loss=1.8276 [47.9 s]	dev=(HR@20:0.4511,NDCG@20:0.2523) [3.1 s]
+INFO:root:Epoch 19    loss=1.8272 [37.6 s]	dev=(HR@20:0.4502,NDCG@20:0.2522) [2.3 s]
+INFO:root:Epoch 20    loss=1.8268 [32.5 s]	dev=(HR@20:0.4528,NDCG@20:0.2534) [2.3 s] *
+INFO:root:Epoch 21    loss=1.8265 [34.1 s]	dev=(HR@20:0.4527,NDCG@20:0.2531) [2.5 s]
+INFO:root:Epoch 22    loss=1.8268 [35.1 s]	dev=(HR@20:0.4507,NDCG@20:0.2528) [2.7 s]
+INFO:root:Epoch 23    loss=1.8267 [33.0 s]	dev=(HR@20:0.4511,NDCG@20:0.2537) [2.3 s] *
+INFO:root:Epoch 24    loss=1.8268 [33.2 s]	dev=(HR@20:0.4511,NDCG@20:0.2535) [2.4 s]
+INFO:root:Epoch 25    loss=1.8266 [34.1 s]	dev=(HR@20:0.4498,NDCG@20:0.2537) [2.4 s] *
+INFO:root:Epoch 26    loss=1.8265 [34.9 s]	dev=(HR@20:0.4500,NDCG@20:0.2528) [2.4 s]
+INFO:root:Epoch 27    loss=1.8265 [36.1 s]	dev=(HR@20:0.4529,NDCG@20:0.2536) [2.3 s]
+INFO:root:Epoch 28    loss=1.8263 [32.5 s]	dev=(HR@20:0.4535,NDCG@20:0.2551) [2.2 s] *
+INFO:root:Epoch 29    loss=1.8264 [34.3 s]	dev=(HR@20:0.4511,NDCG@20:0.2543) [2.2 s]
+INFO:root:Epoch 30    loss=1.8263 [33.5 s]	dev=(HR@20:0.4507,NDCG@20:0.2554) [2.3 s] *
+INFO:root:Epoch 31    loss=1.8262 [32.8 s]	dev=(HR@20:0.4532,NDCG@20:0.2550) [2.2 s]
+INFO:root:Epoch 32    loss=1.8260 [32.7 s]	dev=(HR@20:0.4508,NDCG@20:0.2553) [2.6 s]
+INFO:root:Epoch 33    loss=1.8264 [32.5 s]	dev=(HR@20:0.4526,NDCG@20:0.2553) [2.2 s]
+INFO:root:Epoch 34    loss=1.8259 [32.4 s]	dev=(HR@20:0.4518,NDCG@20:0.2550) [2.3 s]
+INFO:root:Early stop at 34 based on dev result.
+INFO:root:
+Best Iter(dev)=   30	 dev=(HR@20:0.4507,NDCG@20:0.2554) [1429.0 s] 
+INFO:root:Load model from D:\大三上\ML实验\理论课大作业\ReChorus\experiments\results_full_cpu\models\Grocery_and_Gourmet_Food\SimGCL_seed2026.pt
+INFO:root:
+Dev  After Training: (HR@10:0.3401,NDCG@10:0.2276,HR@20:0.4507,NDCG@20:0.2554)
+INFO:root:
+Test After Training: (HR@10:0.2773,NDCG@10:0.1761,HR@20:0.3896,NDCG@20:0.2042)
+INFO:root:
+--------------------------------------------- END: 2026-10-04 17:14:06 ---------------------------------------------

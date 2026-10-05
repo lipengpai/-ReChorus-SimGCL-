@@ -1,0 +1,59 @@
+INFO:root:Namespace(model_name='LightGCN', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2026-10-03 15:14:27 ---------------------------------------------
+INFO:root:
+====================================
+ Arguments          | Values        
+====================================
+ batch_size         | 1024         
+ data_appendix      |              
+ dataset            | Grocery_Pilot
+ dropout            | 0            
+ early_stop         | 3            
+ emb_size           | 32           
+ epoch              | 10           
+ eval_batch_size    | 1024         
+ gpu                | 0            
+ l2                 | 0.0001       
+ lr                 | 0.001        
+ main_metric        | NDCG@20      
+ n_layers           | 2            
+ num_neg            | 1            
+ num_workers        | 0            
+ optimizer          | Adam         
+ random_seed        | 2026         
+ save_final_results | 0            
+ test_all           | 0            
+ topk               | 10,20        
+====================================
+INFO:root:Device: cpu
+INFO:root:Load corpus from ../data\Grocery_Pilot\BaseReader.pkl
+INFO:root:#params: 111360
+INFO:root:LightGCN(
+  (encoder): LGCNEncoder(
+    (embedding_dict): ParameterDict(
+        (item_emb): Parameter containing: [torch.FloatTensor of size 2979x32]
+        (user_emb): Parameter containing: [torch.FloatTensor of size 501x32]
+    )
+  )
+)
+INFO:root:Test Before Training: (HR@10:0.0780,NDCG@10:0.0354,HR@20:0.1980,NDCG@20:0.0653)
+INFO:root:Optimizer: Adam
+INFO:root:Epoch 1     loss=0.6898 [3.5 s]	dev=(HR@20:0.1660,NDCG@20:0.0589) [0.0 s] *
+INFO:root:Epoch 2     loss=0.6892 [0.2 s]	dev=(HR@20:0.1700,NDCG@20:0.0606) [0.0 s] *
+INFO:root:Epoch 3     loss=0.6882 [0.2 s]	dev=(HR@20:0.1660,NDCG@20:0.0611) [0.0 s] *
+INFO:root:Epoch 4     loss=0.6872 [0.2 s]	dev=(HR@20:0.1640,NDCG@20:0.0642) [0.0 s] *
+INFO:root:Epoch 5     loss=0.6859 [0.3 s]	dev=(HR@20:0.1660,NDCG@20:0.0701) [0.0 s] *
+INFO:root:Epoch 6     loss=0.6847 [0.2 s]	dev=(HR@20:0.1780,NDCG@20:0.0779) [0.0 s] *
+INFO:root:Epoch 7     loss=0.6830 [0.2 s]	dev=(HR@20:0.1880,NDCG@20:0.0863) [0.0 s] *
+INFO:root:Epoch 8     loss=0.6809 [0.2 s]	dev=(HR@20:0.1940,NDCG@20:0.0928) [0.0 s] *
+INFO:root:Epoch 9     loss=0.6787 [0.3 s]	dev=(HR@20:0.2080,NDCG@20:0.1006) [0.0 s] *
+INFO:root:Epoch 10    loss=0.6761 [0.2 s]	dev=(HR@20:0.2080,NDCG@20:0.1012) [0.0 s] *
+INFO:root:
+Best Iter(dev)=   10	 dev=(HR@20:0.2080,NDCG@20:0.1012) [5.6 s] 
+INFO:root:Load model from D:\大三上\ML实验\理论课大作业\ReChorus\experiments\results\models\Grocery_Pilot\LightGCN_seed2026.pt
+INFO:root:
+Dev  After Training: (HR@10:0.1520,NDCG@10:0.0869,HR@20:0.2080,NDCG@20:0.1012)
+INFO:root:
+Test After Training: (HR@10:0.1260,NDCG@10:0.0586,HR@20:0.2120,NDCG@20:0.0801)
+INFO:root:
+--------------------------------------------- END: 2026-10-03 15:14:33 ---------------------------------------------

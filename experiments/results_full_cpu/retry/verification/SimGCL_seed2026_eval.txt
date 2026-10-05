@@ -1,0 +1,46 @@
+INFO:root:Namespace(model_name='SimGCL', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2026-10-04 23:04:20 ---------------------------------------------
+INFO:root:
+================================
+ Arguments          | Values    
+================================
+ batch_size         | 2048     
+ cl_rate            | 0.2      
+ data_appendix      |          
+ dataset            | ML_1MTOPK
+ dropout            | 0        
+ early_stop         | 5        
+ emb_size           | 64       
+ epoch              | 200      
+ eps                | 0.1      
+ eval_batch_size    | 512      
+ gpu                |          
+ include_ego        | 0        
+ l2                 | 0.0001   
+ lr                 | 0.001    
+ main_metric        | NDCG@20  
+ n_layers           | 3        
+ num_neg            | 1        
+ num_workers        | 0        
+ optimizer          | Adam     
+ random_seed        | 2026     
+ resume_epoch       | 0        
+ save_final_results | 0        
+ temperature        | 0.2      
+ test_all           | 0        
+ topk               | 10,20    
+================================
+INFO:root:Device: cpu
+INFO:root:Load corpus from ../data\ML_1MTOPK\BaseReader.pkl
+INFO:root:#params: 586176
+INFO:root:SimGCL(
+  (encoder): SimGCLEncoder()
+)
+INFO:root:Test Before Training: (HR@10:0.3014,NDCG@10:0.1638,HR@20:0.4592,NDCG@20:0.2035)
+INFO:root:Load model from ../experiments/results_full_cpu/models/ML_1MTOPK/SimGCL_seed2026.pt
+INFO:root:
+Dev  After Training: (HR@10:0.3078,NDCG@10:0.1760,HR@20:0.4268,NDCG@20:0.2059)
+INFO:root:
+Test After Training: (HR@10:0.2781,NDCG@10:0.1551,HR@20:0.4140,NDCG@20:0.1893)
+INFO:root:
+--------------------------------------------- END: 2026-10-04 23:04:40 ---------------------------------------------

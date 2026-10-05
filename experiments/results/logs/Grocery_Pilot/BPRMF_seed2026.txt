@@ -1,0 +1,98 @@
+INFO:root:Namespace(model_name='BPRMF', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2026-10-03 15:13:40 ---------------------------------------------
+INFO:root:
+====================================
+ Arguments          | Values        
+====================================
+ batch_size         | 1024         
+ data_appendix      |              
+ dataset            | Grocery_Pilot
+ dropout            | 0            
+ early_stop         | 3            
+ emb_size           | 32           
+ epoch              | 10           
+ eval_batch_size    | 1024         
+ gpu                | 0            
+ l2                 | 0.0001       
+ lr                 | 0.001        
+ main_metric        | NDCG@20      
+ num_neg            | 1            
+ num_workers        | 0            
+ optimizer          | Adam         
+ random_seed        | 2026         
+ save_final_results | 0            
+ test_all           | 0            
+ topk               | 10,20        
+====================================
+INFO:root:Device: cpu
+INFO:root:Load corpus from ../data\Grocery_Pilot\BaseReader.pkl
+INFO:root:#params: 111360
+INFO:root:BPRMF(
+  (u_embeddings): Embedding(501, 32)
+  (i_embeddings): Embedding(2979, 32)
+)
+INFO:root:Test Before Training: (HR@10:0.0980,NDCG@10:0.0487,HR@20:0.2040,NDCG@20:0.0751)
+INFO:root:Optimizer: Adam
+INFO:root:Epoch 1     loss=0.6931 [3.5 s]	dev=(HR@20:0.1840,NDCG@20:0.0622) [0.0 s] *
+INFO:root:Epoch 2     loss=0.6929 [0.2 s]	dev=(HR@20:0.2020,NDCG@20:0.0642) [0.0 s] *
+INFO:root:Epoch 3     loss=0.6927 [0.2 s]	dev=(HR@20:0.1860,NDCG@20:0.0589) [0.0 s]
+INFO:root:Epoch 4     loss=0.6925 [0.2 s]	dev=(HR@20:0.1960,NDCG@20:0.0616) [0.0 s]
+INFO:root:Early stop at 4 based on dev result.
+INFO:root:
+Best Iter(dev)=    2	 dev=(HR@20:0.2020,NDCG@20:0.0642) [4.1 s] 
+INFO:root:Load model from D:\大三上\ML实验\理论课大作业\ReChorus\experiments\results\models\Grocery_Pilot\BPRMF_seed2026.pt
+INFO:root:
+Dev  After Training: (HR@10:0.0840,NDCG@10:0.0346,HR@20:0.2020,NDCG@20:0.0642)
+INFO:root:
+Test After Training: (HR@10:0.0840,NDCG@10:0.0389,HR@20:0.1880,NDCG@20:0.0645)
+INFO:root:
+--------------------------------------------- END: 2026-10-03 15:13:44 ---------------------------------------------
+INFO:root:Namespace(model_name='BPRMF', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2026-10-03 15:14:14 ---------------------------------------------
+INFO:root:
+====================================
+ Arguments          | Values        
+====================================
+ batch_size         | 1024         
+ data_appendix      |              
+ dataset            | Grocery_Pilot
+ dropout            | 0            
+ early_stop         | 3            
+ emb_size           | 32           
+ epoch              | 10           
+ eval_batch_size    | 1024         
+ gpu                | 0            
+ l2                 | 0.0001       
+ lr                 | 0.001        
+ main_metric        | NDCG@20      
+ num_neg            | 1            
+ num_workers        | 0            
+ optimizer          | Adam         
+ random_seed        | 2026         
+ save_final_results | 0            
+ test_all           | 0            
+ topk               | 10,20        
+====================================
+INFO:root:Device: cpu
+INFO:root:Load corpus from ../data\Grocery_Pilot\BaseReader.pkl
+INFO:root:#params: 111360
+INFO:root:BPRMF(
+  (u_embeddings): Embedding(501, 32)
+  (i_embeddings): Embedding(2979, 32)
+)
+INFO:root:Test Before Training: (HR@10:0.0980,NDCG@10:0.0487,HR@20:0.2040,NDCG@20:0.0751)
+INFO:root:Optimizer: Adam
+INFO:root:Epoch 1     loss=0.6931 [3.4 s]	dev=(HR@20:0.1840,NDCG@20:0.0622) [0.0 s] *
+INFO:root:Epoch 2     loss=0.6929 [0.1 s]	dev=(HR@20:0.2020,NDCG@20:0.0642) [0.0 s] *
+INFO:root:Epoch 3     loss=0.6927 [0.2 s]	dev=(HR@20:0.1860,NDCG@20:0.0589) [0.0 s]
+INFO:root:Epoch 4     loss=0.6925 [0.2 s]	dev=(HR@20:0.1960,NDCG@20:0.0616) [0.0 s]
+INFO:root:Early stop at 4 based on dev result.
+INFO:root:
+Best Iter(dev)=    2	 dev=(HR@20:0.2020,NDCG@20:0.0642) [3.9 s] 
+INFO:root:Load model from D:\大三上\ML实验\理论课大作业\ReChorus\experiments\results\models\Grocery_Pilot\BPRMF_seed2026.pt
+INFO:root:
+Dev  After Training: (HR@10:0.0840,NDCG@10:0.0346,HR@20:0.2020,NDCG@20:0.0642)
+INFO:root:
+Test After Training: (HR@10:0.0840,NDCG@10:0.0389,HR@20:0.1880,NDCG@20:0.0645)
+INFO:root:
+--------------------------------------------- END: 2026-10-03 15:14:18 ---------------------------------------------

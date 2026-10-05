@@ -9,6 +9,7 @@ We have implemented the following methods (still updating):
 - [Learning over Knowledge-Base Embeddings for Recommendation](https://arxiv.org/pdf/1803.06540.pdf) (CFKG [SIGIR'18])
 - [LightGCN: Simplifying and Powering Graph Convolution Network for Recommendation](https://dl.acm.org/doi/abs/10.1145/3397271.3401063?casa_token=mMzWDMq9WxQAAAAA%3AsUQEeXtBSLjctZa7qfyOO25nOBqdHWW8ukbjZUeOmcprZcmF3QBWKBtdICrMDidOy8MJ28n3Z1zy5g) (LightGCN [SIGIR'20])
 - [Bootstrapping User and Item Representations for One-Class Collaborative Filtering](https://arxiv.org/pdf/2105.06323) (BUIR [SIGIR'21])
+- [Are Graph Augmentations Necessary? Simple Graph Contrastive Learning for Recommendation](https://arxiv.org/abs/2112.08679) (SimGCL [SIGIR'22])
 - [Towards Representation Alignment and Uniformity in Collaborative Filtering](https://arxiv.org/pdf/2206.12811.pdf) (DirectAU [KDD'22])
 
 **Sequential Recommenders**

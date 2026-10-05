@@ -1,0 +1,55 @@
+INFO:root:Namespace(model_name='SimGCL', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2026-10-03 15:18:13 ---------------------------------------------
+INFO:root:
+==================================
+ Arguments          | Values      
+==================================
+ batch_size         | 1024       
+ cl_rate            | 0.01       
+ data_appendix      |            
+ dataset            | ML_1M_Pilot
+ dropout            | 0          
+ early_stop         | 3          
+ emb_size           | 32         
+ epoch              | 10         
+ eps                | 0.1        
+ eval_batch_size    | 1024       
+ gpu                | 0          
+ include_ego        | 1          
+ l2                 | 0.0001     
+ lr                 | 0.001      
+ main_metric        | NDCG@20    
+ n_layers           | 2          
+ num_neg            | 1          
+ num_workers        | 0          
+ optimizer          | Adam       
+ random_seed        | 2026       
+ save_final_results | 0          
+ temperature        | 0.2        
+ test_all           | 0          
+ topk               | 10,20      
+==================================
+INFO:root:Device: cpu
+INFO:root:Load corpus from ../data\ML_1M_Pilot\BaseReader.pkl
+INFO:root:#params: 87904
+INFO:root:SimGCL(
+  (encoder): SimGCLEncoder()
+)
+INFO:root:Test Before Training: (HR@10:0.1218,NDCG@10:0.0609,HR@20:0.2163,NDCG@20:0.0845)
+INFO:root:Optimizer: Adam
+INFO:root:Epoch 1     loss=0.7256 [8.5 s]	dev=(HR@20:0.2145,NDCG@20:0.0810) [0.0 s] *
+INFO:root:Epoch 2     loss=0.7227 [2.7 s]	dev=(HR@20:0.2235,NDCG@20:0.0916) [0.0 s] *
+INFO:root:Epoch 3     loss=0.7216 [2.6 s]	dev=(HR@20:0.2316,NDCG@20:0.0972) [0.0 s] *
+INFO:root:Epoch 4     loss=0.7208 [2.6 s]	dev=(HR@20:0.2300,NDCG@20:0.1006) [0.0 s] *
+INFO:root:Epoch 5     loss=0.7203 [6.3 s]	dev=(HR@20:0.2243,NDCG@20:0.0960) [0.1 s]
+INFO:root:Epoch 6     loss=0.7200 [2.3 s]	dev=(HR@20:0.2210,NDCG@20:0.0947) [0.0 s]
+INFO:root:Early stop at 6 based on dev result.
+INFO:root:
+Best Iter(dev)=    4	 dev=(HR@20:0.2300,NDCG@20:0.1006) [25.3 s] 
+INFO:root:Load model from D:\大三上\ML实验\理论课大作业\ReChorus\experiments\results\tuning_models\ML_1M_Pilot\cl0.01_ego1.pt
+INFO:root:
+Dev  After Training: (HR@10:0.1403,NDCG@10:0.0783,HR@20:0.2300,NDCG@20:0.1006)
+INFO:root:
+Test After Training: (HR@10:0.1541,NDCG@10:0.0813,HR@20:0.2280,NDCG@20:0.0997)
+INFO:root:
+--------------------------------------------- END: 2026-10-03 15:18:39 ---------------------------------------------

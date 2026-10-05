@@ -1,0 +1,9 @@
+﻿dataset,model,configuration,dev_HR@10,dev_NDCG@10,dev_HR@20,dev_NDCG@20,test_HR@10,test_NDCG@10,test_HR@20,test_NDCG@20
+Grocery_Pilot,BPRMF,default comparison,0.084,0.0346,0.202,0.0642,0.084,0.0389,0.188,0.0645
+Grocery_Pilot,LightGCN,default comparison,0.152,0.0869,0.208,0.1012,0.126,0.0586,0.212,0.0801
+Grocery_Pilot,SimGCL-default,"cl_rate=0.2, include_ego=0",0.076,0.0396,0.124,0.0516,0.056,0.029,0.134,0.0485
+ML_1M_Pilot,BPRMF,default comparison,0.4641,0.2604,0.6436,0.3058,0.4106,0.2205,0.6166,0.272
+ML_1M_Pilot,LightGCN,default comparison,0.469,0.26,0.6501,0.306,0.4158,0.2159,0.6075,0.2641
+ML_1M_Pilot,SimGCL-default,"cl_rate=0.2, include_ego=0",0.1403,0.0651,0.2757,0.0989,0.1282,0.0547,0.228,0.0795
+Grocery_Pilot,SimGCL-tuned,"cl_rate=0.01, include_ego=0",0.12,0.0655,0.186,0.0822,0.096,0.0471,0.174,0.0665
+ML_1M_Pilot,SimGCL-tuned,"cl_rate=0.01, include_ego=0",0.1648,0.0734,0.2773,0.1016,0.1244,0.0518,0.237,0.08

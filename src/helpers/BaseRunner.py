@@ -2,9 +2,11 @@
 
 import os
 import gc
+import random
 import torch
 import torch.nn as nn
 import logging
+import re
 import numpy as np
 from time import time
 from tqdm import tqdm
@@ -20,6 +22,10 @@ class BaseRunner(object):
 	def parse_runner_args(parser):
 		parser.add_argument('--epoch', type=int, default=200,
 							help='Number of epochs.')
+		parser.add_argument('--resume_epoch', type=int, default=0,
+							help='Last fully completed epoch when resuming training.')
+		parser.add_argument('--resume_state', type=str, default='',
+							help='Path to a full last-epoch checkpoint for exact resumption.')
 		parser.add_argument('--check_epoch', type=int, default=1,
 							help='Check some tensors every check_epoch.')
 		parser.add_argument('--test_epoch', type=int, default=-1,
@@ -80,6 +86,8 @@ class BaseRunner(object):
 	def __init__(self, args):
 		self.train_models = args.train
 		self.epoch = args.epoch
+		self.resume_epoch = args.resume_epoch
+		self.resume_state = args.resume_state
 		self.check_epoch = args.check_epoch
 		self.test_epoch = args.test_epoch
 		self.early_stop = args.early_stop
@@ -97,6 +105,7 @@ class BaseRunner(object):
 		self.time = None  # will store [start_time, last_step_time]
 
 		self.log_path = os.path.dirname(args.log_file) # path to save predictions
+		self.log_file = args.log_file
 		self.save_appendix = args.log_file.split("/")[-1].split(".")[0] # appendix for prediction saving
 
 	def _check_time(self, start=False):
@@ -113,12 +122,82 @@ class BaseRunner(object):
 			model.customize_parameters(), lr=self.learning_rate, weight_decay=self.l2)
 		return optimizer
 
+	def _save_resume_state(self, model, epoch, main_metric_results, dev_results):
+		if not self.resume_state:
+			return
+		utils.check_dir(self.resume_state)
+		state = {
+			'epoch': epoch,
+			'model_state': model.state_dict(),
+			'optimizer_state': model.optimizer.state_dict(),
+			'main_metric_results': main_metric_results,
+			'dev_results': dev_results,
+			'numpy_rng_state': np.random.get_state(),
+			'python_rng_state': random.getstate(),
+			'torch_rng_state': torch.get_rng_state(),
+		}
+		if torch.cuda.is_available():
+			state['cuda_rng_state'] = torch.cuda.get_rng_state_all()
+		torch.save(state, self.resume_state)
+
+	def _load_resume_state(self, model):
+		if not self.resume_state or not os.path.exists(self.resume_state):
+			return None
+		try:
+			state = torch.load(self.resume_state, map_location=model.device, weights_only=False)
+		except TypeError:  # PyTorch versions before the weights_only argument
+			state = torch.load(self.resume_state, map_location=model.device)
+		if int(state['epoch']) != self.resume_epoch:
+			raise ValueError(
+				'Resume checkpoint epoch %d does not match --resume_epoch %d.' %
+				(state['epoch'], self.resume_epoch)
+			)
+		model.load_state_dict(state['model_state'])
+		model.optimizer = self._build_optimizer(model)
+		model.optimizer.load_state_dict(state['optimizer_state'])
+		for optimizer_state in model.optimizer.state.values():
+			for key, value in optimizer_state.items():
+				if torch.is_tensor(value):
+					optimizer_state[key] = value.to(model.device)
+		np.random.set_state(state['numpy_rng_state'])
+		random.setstate(state['python_rng_state'])
+		torch.set_rng_state(state['torch_rng_state'].cpu())
+		if torch.cuda.is_available() and 'cuda_rng_state' in state:
+			torch.cuda.set_rng_state_all(state['cuda_rng_state'])
+		return state['main_metric_results'], state['dev_results']
+
 	def train(self, data_dict: Dict[str, BaseModel.Dataset]):
 		model = data_dict['train'].model
 		main_metric_results, dev_results = list(), list()
 		self._check_time(start=True)
+		if self.resume_epoch > 0:
+			restored = self._load_resume_state(model)
+			if restored is not None:
+				main_metric_results, dev_results = restored
+			else:
+				# Compatibility fallback for historical weight-only checkpoints.
+				with open(self.log_file, 'rb') as stream:
+					log_text = stream.read().decode('utf-8', errors='ignore')
+				history = {}
+				for epoch_text, metric_text in re.findall(
+						r'Epoch\s+(\d+)\s+.*?dev=\(([^\r\n)]+)\)', log_text):
+					result = {}
+					for pair in metric_text.split(','):
+						key, value = pair.strip().split(':')
+						result[key] = float(value)
+					history[int(epoch_text)] = result
+				for completed_epoch in range(1, self.resume_epoch + 1):
+					if completed_epoch in history:
+						dev_results.append(history[completed_epoch])
+						main_metric_results.append(history[completed_epoch][self.main_metric])
+				if not main_metric_results:
+					dev_result = self.evaluate(data_dict['dev'], [self.main_topk], self.metrics)
+					dev_results.append(dev_result)
+					main_metric_results.append(dev_result[self.main_metric])
+			logging.info('Resume training after epoch %d with %d validation records.' % (
+				self.resume_epoch, len(main_metric_results)))
 		try:
-			for epoch in range(self.epoch):
+			for epoch in range(self.resume_epoch, self.epoch):
 				# Fit
 				self._check_time()
 				gc.collect()
@@ -153,6 +232,9 @@ class BaseRunner(object):
 					model.save_model()
 					logging_str += ' *'
 				logging.info(logging_str)
+				self._save_resume_state(
+					model, epoch + 1, main_metric_results, dev_results
+				)
 
 				if self.early_stop > 0 and self.eval_termination(main_metric_results):
 					logging.info("Early stop at %d based on dev result." % (epoch + 1))

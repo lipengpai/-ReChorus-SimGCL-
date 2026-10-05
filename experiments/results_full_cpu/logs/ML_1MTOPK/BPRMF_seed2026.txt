@@ -1,0 +1,54 @@
+INFO:root:Namespace(model_name='BPRMF', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2026-10-04 17:14:14 ---------------------------------------------
+INFO:root:
+================================
+ Arguments          | Values    
+================================
+ batch_size         | 2048     
+ data_appendix      |          
+ dataset            | ML_1MTOPK
+ dropout            | 0        
+ early_stop         | 5        
+ emb_size           | 64       
+ epoch              | 200      
+ eval_batch_size    | 512      
+ gpu                |          
+ l2                 | 0.0001   
+ lr                 | 0.001    
+ main_metric        | NDCG@20  
+ num_neg            | 1        
+ num_workers        | 0        
+ optimizer          | Adam     
+ random_seed        | 2026     
+ save_final_results | 0        
+ test_all           | 0        
+ topk               | 10,20    
+================================
+INFO:root:Device: cpu
+INFO:root:Reading data from "../data", dataset = "ML_1MTOPK" 
+INFO:root:Counting dataset statistics...
+INFO:root:"# user": 6032, "# item": 3125, "# entry": 574197
+INFO:root:Save corpus to ../data\ML_1MTOPK\BaseReader.pkl
+INFO:root:#params: 586176
+INFO:root:BPRMF(
+  (u_embeddings): Embedding(6033, 64)
+  (i_embeddings): Embedding(3126, 64)
+)
+INFO:root:Test Before Training: (HR@10:0.0904,NDCG@10:0.0396,HR@20:0.1794,NDCG@20:0.0620)
+INFO:root:Optimizer: Adam
+INFO:root:Epoch 1     loss=0.6243 [6.7 s]	dev=(HR@20:0.7003,NDCG@20:0.3332) [0.0 s] *
+INFO:root:Epoch 2     loss=0.4837 [3.7 s]	dev=(HR@20:0.6987,NDCG@20:0.3316) [0.0 s]
+INFO:root:Epoch 3     loss=0.4751 [3.7 s]	dev=(HR@20:0.6995,NDCG@20:0.3320) [0.0 s]
+INFO:root:Epoch 4     loss=0.4740 [3.9 s]	dev=(HR@20:0.7010,NDCG@20:0.3316) [0.0 s]
+INFO:root:Epoch 5     loss=0.4739 [3.8 s]	dev=(HR@20:0.7010,NDCG@20:0.3318) [0.0 s]
+INFO:root:Epoch 6     loss=0.4740 [3.8 s]	dev=(HR@20:0.7007,NDCG@20:0.3316) [0.0 s]
+INFO:root:Early stop at 6 based on dev result.
+INFO:root:
+Best Iter(dev)=    1	 dev=(HR@20:0.7003,NDCG@20:0.3332) [25.8 s] 
+INFO:root:Load model from D:\大三上\ML实验\理论课大作业\ReChorus\experiments\results_full_cpu\models\ML_1MTOPK\BPRMF_seed2026.pt
+INFO:root:
+Dev  After Training: (HR@10:0.5149,NDCG@10:0.2864,HR@20:0.7003,NDCG@20:0.3332)
+INFO:root:
+Test After Training: (HR@10:0.4814,NDCG@10:0.2689,HR@20:0.6785,NDCG@20:0.3188)
+INFO:root:
+--------------------------------------------- END: 2026-10-04 17:14:42 ---------------------------------------------

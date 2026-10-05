@@ -1,0 +1,96 @@
+INFO:root:Namespace(model_name='LightGCN', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2026-10-04 17:14:51 ---------------------------------------------
+INFO:root:
+================================
+ Arguments          | Values    
+================================
+ batch_size         | 2048     
+ data_appendix      |          
+ dataset            | ML_1MTOPK
+ dropout            | 0        
+ early_stop         | 5        
+ emb_size           | 64       
+ epoch              | 200      
+ eval_batch_size    | 512      
+ gpu                |          
+ l2                 | 0.0001   
+ lr                 | 0.001    
+ main_metric        | NDCG@20  
+ n_layers           | 3        
+ num_neg            | 1        
+ num_workers        | 0        
+ optimizer          | Adam     
+ random_seed        | 2026     
+ save_final_results | 0        
+ test_all           | 0        
+ topk               | 10,20    
+================================
+INFO:root:Device: cpu
+INFO:root:Load corpus from ../data\ML_1MTOPK\BaseReader.pkl
+INFO:root:#params: 586176
+INFO:root:LightGCN(
+  (encoder): LGCNEncoder(
+    (embedding_dict): ParameterDict(
+        (item_emb): Parameter containing: [torch.FloatTensor of size 3126x64]
+        (user_emb): Parameter containing: [torch.FloatTensor of size 6033x64]
+    )
+  )
+)
+INFO:root:Test Before Training: (HR@10:0.1078,NDCG@10:0.0501,HR@20:0.2134,NDCG@20:0.0765)
+INFO:root:Optimizer: Adam
+INFO:root:Namespace(model_name='LightGCN', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2026-10-04 17:27:56 ---------------------------------------------
+INFO:root:
+================================
+ Arguments          | Values    
+================================
+ batch_size         | 2048     
+ data_appendix      |          
+ dataset            | ML_1MTOPK
+ dropout            | 0        
+ early_stop         | 5        
+ emb_size           | 64       
+ epoch              | 200      
+ eval_batch_size    | 512      
+ gpu                |          
+ l2                 | 0.0001   
+ lr                 | 0.001    
+ main_metric        | NDCG@20  
+ n_layers           | 3        
+ num_neg            | 1        
+ num_workers        | 0        
+ optimizer          | Adam     
+ random_seed        | 2026     
+ save_final_results | 0        
+ test_all           | 0        
+ topk               | 10,20    
+================================
+INFO:root:Device: cpu
+INFO:root:Load corpus from ../data\ML_1MTOPK\BaseReader.pkl
+INFO:root:#params: 586176
+INFO:root:LightGCN(
+  (encoder): LGCNEncoder(
+    (embedding_dict): ParameterDict(
+        (item_emb): Parameter containing: [torch.FloatTensor of size 3126x64]
+        (user_emb): Parameter containing: [torch.FloatTensor of size 6033x64]
+    )
+  )
+)
+INFO:root:Test Before Training: (HR@10:0.1078,NDCG@10:0.0501,HR@20:0.2134,NDCG@20:0.0765)
+INFO:root:Optimizer: Adam
+INFO:root:Epoch 1     loss=0.6316 [163.5 s]	dev=(HR@20:0.7049,NDCG@20:0.3344) [1.5 s] *
+INFO:root:Epoch 2     loss=0.5504 [146.8 s]	dev=(HR@20:0.7034,NDCG@20:0.3338) [1.5 s]
+INFO:root:Epoch 3     loss=0.5495 [147.3 s]	dev=(HR@20:0.7022,NDCG@20:0.3334) [1.4 s]
+INFO:root:Epoch 4     loss=0.5493 [141.6 s]	dev=(HR@20:0.7026,NDCG@20:0.3336) [1.5 s]
+INFO:root:Epoch 5     loss=0.5490 [146.4 s]	dev=(HR@20:0.7049,NDCG@20:0.3339) [1.5 s]
+INFO:root:Epoch 6     loss=0.5493 [144.3 s]	dev=(HR@20:0.7007,NDCG@20:0.3339) [1.6 s]
+INFO:root:Early stop at 6 based on dev result.
+INFO:root:
+Best Iter(dev)=    1	 dev=(HR@20:0.7049,NDCG@20:0.3344) [898.9 s] 
+INFO:root:Load model from D:\大三上\ML实验\理论课大作业\ReChorus\experiments\results_full_cpu\models\ML_1MTOPK\LightGCN_seed2026.pt
+INFO:root:
+Dev  After Training: (HR@10:0.5214,NDCG@10:0.2881,HR@20:0.7049,NDCG@20:0.3344)
+INFO:root:
+Test After Training: (HR@10:0.4908,NDCG@10:0.2766,HR@20:0.6952,NDCG@20:0.3284)
+INFO:root:
+--------------------------------------------- END: 2026-10-04 17:43:12 ---------------------------------------------

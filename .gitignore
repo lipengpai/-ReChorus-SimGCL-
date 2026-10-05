@@ -9,4 +9,11 @@ doc/
 model/
 search.py
 *.pkl
+*.pt
+*.pth
 .vscode/
+.venv/
+data/Grocery_Pilot/
+data/ML_1M_Pilot/
+data/ML_1MTOPK/
+data/MovieLens_1M/raw/

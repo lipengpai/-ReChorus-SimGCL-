@@ -1,0 +1,7 @@
+﻿dataset,model,status,seed,max_epochs,patience,elapsed_seconds,HR@10,NDCG@10,HR@20,NDCG@20
+Grocery_and_Gourmet_Food,BPRMF,completed-existing,2026,200,10,0,0.3007,0.1467,0.399,0.1716
+Grocery_and_Gourmet_Food,LightGCN,completed-existing,2026,200,10,0,0.3065,0.1467,0.4186,0.175
+Grocery_and_Gourmet_Food,SimGCL,completed-existing,2026,200,5,0,0.2773,0.1761,0.3896,0.2042
+ML_1MTOPK,BPRMF,completed-existing,2026,200,5,0,0.4814,0.2689,0.6785,0.3188
+ML_1MTOPK,LightGCN,completed-existing,2026,200,5,0,0.4908,0.2766,0.6952,0.3284
+ML_1MTOPK,SimGCL,completed-retry-continuous,2026,200,5,5856.0,0.2781,0.1551,0.4140,0.1893

@@ -1,0 +1,58 @@
+INFO:root:Namespace(model_name='SimGCL', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2026-10-03 15:14:41 ---------------------------------------------
+INFO:root:
+====================================
+ Arguments          | Values        
+====================================
+ batch_size         | 1024         
+ cl_rate            | 0.2          
+ data_appendix      |              
+ dataset            | Grocery_Pilot
+ dropout            | 0            
+ early_stop         | 3            
+ emb_size           | 32           
+ epoch              | 10           
+ eps                | 0.1          
+ eval_batch_size    | 1024         
+ gpu                | 0            
+ include_ego        | 0            
+ l2                 | 0.0001       
+ lr                 | 0.001        
+ main_metric        | NDCG@20      
+ n_layers           | 2            
+ num_neg            | 1            
+ num_workers        | 0            
+ optimizer          | Adam         
+ random_seed        | 2026         
+ save_final_results | 0            
+ temperature        | 0.2          
+ test_all           | 0            
+ topk               | 10,20        
+====================================
+INFO:root:Device: cpu
+INFO:root:Load corpus from ../data\Grocery_Pilot\BaseReader.pkl
+INFO:root:#params: 111360
+INFO:root:SimGCL(
+  (encoder): SimGCLEncoder()
+)
+INFO:root:Test Before Training: (HR@10:0.0680,NDCG@10:0.0301,HR@20:0.1360,NDCG@20:0.0470)
+INFO:root:Optimizer: Adam
+INFO:root:Epoch 1     loss=1.4809 [3.7 s]	dev=(HR@20:0.1300,NDCG@20:0.0491) [0.0 s] *
+INFO:root:Epoch 2     loss=1.4564 [0.3 s]	dev=(HR@20:0.1260,NDCG@20:0.0487) [0.0 s]
+INFO:root:Epoch 3     loss=1.4383 [0.3 s]	dev=(HR@20:0.1260,NDCG@20:0.0497) [0.0 s] *
+INFO:root:Epoch 4     loss=1.4313 [0.3 s]	dev=(HR@20:0.1260,NDCG@20:0.0498) [0.0 s] *
+INFO:root:Epoch 5     loss=1.4224 [0.3 s]	dev=(HR@20:0.1240,NDCG@20:0.0504) [0.0 s] *
+INFO:root:Epoch 6     loss=1.4138 [0.3 s]	dev=(HR@20:0.1240,NDCG@20:0.0509) [0.0 s] *
+INFO:root:Epoch 7     loss=1.4071 [0.3 s]	dev=(HR@20:0.1240,NDCG@20:0.0516) [0.0 s] *
+INFO:root:Epoch 8     loss=1.4068 [0.2 s]	dev=(HR@20:0.1220,NDCG@20:0.0512) [0.0 s]
+INFO:root:Epoch 9     loss=1.4043 [0.3 s]	dev=(HR@20:0.1240,NDCG@20:0.0516) [0.0 s]
+INFO:root:Early stop at 9 based on dev result.
+INFO:root:
+Best Iter(dev)=    7	 dev=(HR@20:0.1240,NDCG@20:0.0516) [5.9 s] 
+INFO:root:Load model from D:\大三上\ML实验\理论课大作业\ReChorus\experiments\results\models\Grocery_Pilot\SimGCL_seed2026.pt
+INFO:root:
+Dev  After Training: (HR@10:0.0760,NDCG@10:0.0396,HR@20:0.1240,NDCG@20:0.0516)
+INFO:root:
+Test After Training: (HR@10:0.0560,NDCG@10:0.0290,HR@20:0.1340,NDCG@20:0.0485)
+INFO:root:
+--------------------------------------------- END: 2026-10-03 15:14:47 ---------------------------------------------

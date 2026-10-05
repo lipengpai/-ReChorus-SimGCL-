@@ -1,0 +1,53 @@
+INFO:root:Namespace(model_name='SimGCL', model_mode='')
+INFO:root:--------------------------------------------- BEGIN: 2026-10-03 15:15:58 ---------------------------------------------
+INFO:root:
+==================================
+ Arguments          | Values      
+==================================
+ batch_size         | 1024       
+ cl_rate            | 0.2        
+ data_appendix      |            
+ dataset            | ML_1M_Pilot
+ dropout            | 0          
+ early_stop         | 3          
+ emb_size           | 32         
+ epoch              | 10         
+ eps                | 0.1        
+ eval_batch_size    | 1024       
+ gpu                | 0          
+ include_ego        | 0          
+ l2                 | 0.0001     
+ lr                 | 0.001      
+ main_metric        | NDCG@20    
+ n_layers           | 2          
+ num_neg            | 1          
+ num_workers        | 0          
+ optimizer          | Adam       
+ random_seed        | 2026       
+ save_final_results | 0          
+ temperature        | 0.2        
+ test_all           | 0          
+ topk               | 10,20      
+==================================
+INFO:root:Device: cpu
+INFO:root:Load corpus from ../data\ML_1M_Pilot\BaseReader.pkl
+INFO:root:#params: 87904
+INFO:root:SimGCL(
+  (encoder): SimGCLEncoder()
+)
+INFO:root:Test Before Training: (HR@10:0.2021,NDCG@10:0.0990,HR@20:0.3407,NDCG@20:0.1338)
+INFO:root:Optimizer: Adam
+INFO:root:Epoch 1     loss=1.5849 [5.1 s]	dev=(HR@20:0.2757,NDCG@20:0.0989) [0.0 s] *
+INFO:root:Epoch 2     loss=1.4580 [1.6 s]	dev=(HR@20:0.2626,NDCG@20:0.0957) [0.0 s]
+INFO:root:Epoch 3     loss=1.4107 [1.4 s]	dev=(HR@20:0.2586,NDCG@20:0.0937) [0.0 s]
+INFO:root:Epoch 4     loss=1.3859 [1.4 s]	dev=(HR@20:0.2610,NDCG@20:0.0928) [0.0 s]
+INFO:root:Early stop at 4 based on dev result.
+INFO:root:
+Best Iter(dev)=    1	 dev=(HR@20:0.2757,NDCG@20:0.0989) [9.6 s] 
+INFO:root:Load model from D:\大三上\ML实验\理论课大作业\ReChorus\experiments\results\models\ML_1M_Pilot\SimGCL_seed2026.pt
+INFO:root:
+Dev  After Training: (HR@10:0.1403,NDCG@10:0.0651,HR@20:0.2757,NDCG@20:0.0989)
+INFO:root:
+Test After Training: (HR@10:0.1282,NDCG@10:0.0547,HR@20:0.2280,NDCG@20:0.0795)
+INFO:root:
+--------------------------------------------- END: 2026-10-03 15:16:08 ---------------------------------------------
